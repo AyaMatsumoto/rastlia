@@ -2,8 +2,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch('MYSQL_USER') { 'ryo' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'abcdefgH!123' } %>
+  username: <%= ENV.fetch('MYSQL_USER') %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD') %>
   host: db
 
 development:
@@ -13,3 +13,7 @@ development:
 test:
   <<: *default
   database: rastlia_test
+
+production:
+  <<: *default
+  database: rastlia_production
