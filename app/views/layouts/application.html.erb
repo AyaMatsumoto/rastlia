@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rastlia</title>
+    <title>Youtube宣伝発掘掲示板</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%# <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %> %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196948506-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-196948506-3');
+    </script>
+
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar fixed-top navbar navbar-dark">
+      <%= link_to "Youtube宣伝発掘掲示板", root_path, class: "navbar-brand" %>
+      <div class="text-left">
+        |<%= link_to "ホーム", root_path, class: "menu_link" %>|
+        <%= link_to "掲示板", posts_path, class: "menu_link" %>|
+        <%= link_to "新規投稿", new_post_path, class: "menu_link" %>|
+        <%= link_to "動画検索", search_path, class: "menu_link" %>|
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row justify-content-center text-center">
+        <%= yield %>
+		  </div>
+		</div>
+
+    <footer class="footer text-center">
+      <div class="container pt-5">
+        <p>Copyright &copy; 2021 Youtube宣伝発掘掲示板</p>
+      </div>
+    </footer>
   </body>
 </html>

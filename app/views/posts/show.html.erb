@@ -1,0 +1,30 @@
+<div class="col-md-12">
+	<h1 class="form-h1">投稿内容詳細</h1>
+</div>
+	
+<div class="col-md-8 main">
+	<div>
+		<p>お名前</p>
+		<%= @post.name %>
+	</div>
+	<div>
+		<p>タイトル</p>
+		<%= @post.title %>
+	</div>
+	<div>
+		<p>動画URL</p>
+		<%= @post.video_url %>
+	</div>
+	<div>
+		<p>チャンネルURL</p>
+		<%= @post.channel_url %>
+	</div>
+	<div>
+		<p>本文内容</p>
+		<%= @post.content %>
+	</div>
+	<div>
+		<p>投稿日時</p>
+		<%= @post.created_at %>
+	</div>
+</div>

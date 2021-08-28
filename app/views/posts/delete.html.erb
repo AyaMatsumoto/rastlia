@@ -1,0 +1,21 @@
+<div class="col-md-12">
+	<h1 class="form-h1">削除確認</h1>
+</div>
+
+<div class="col-md-8 main">
+	<% if !flash[:alert].blank? %>
+		<div class="alert alert-danger">
+			<%= flash[:alert] %>
+		</div>
+	<% end %>
+	
+	<%= form_with url: post_path(@post), method: :delete do |f| %>
+		<div class="form-group">
+			<%= f.label :password, "削除パスワード", class: "require" %>
+			<%= f.password_field :password, class: "form-control", required: true, maxlength: 8, minlength: 4 %>
+		</div>
+		<div>
+			<%= f.submit "削除", class: "btn-del", data: { confirm: "削除しますか？" } %>
+		</div>
+	<% end %>
+</div>

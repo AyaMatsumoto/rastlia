@@ -1,0 +1,37 @@
+<div class="col-md-12">
+	<h1 class="form-h1">投稿一覧</h1>
+</div>
+
+<% @posts.each do |post| %>
+	<div class="col-md-10 post-item">
+		<div class="row">
+			<div class="col-md-12 post-header">
+				<p>
+					No.<%= post.id %>&ensp;
+					<% if post.name.blank? %>ななしさん<% else %><%= post.name %><% end %>&ensp;
+					<%= post.title %>
+				</p>
+			</div>
+			<div class="col-md-12">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="<%= post.video_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-md-12 my-3">
+				<%= post.content %>
+			</div>
+			<% if !post.channel_url.blank? %>
+				<div class="col-md-12 my-3">
+					<%= link_to "チャンネルはこちら", post.channel_url, class: "btn-channel" %>
+				</div>
+			<% end %>
+			<div class="col-md-12 text-right">
+				<%= l post.created_at, format: :long %>
+			</div>
+			<div class="col-md-12 text-right my-3">
+				<% link_to post.name, post_path(post) %>
+				<%= link_to "削除", delete_post_path(post), class: "btn-del" %>
+			</div>
+		</div>
+	</div>
+<% end %>
